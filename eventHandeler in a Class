@@ -1,0 +1,52 @@
+Put an Event Handler in a Component Class
+You can, and often will, pass functions as props. It is especially common to pass event handler functions.
+
+In the next lesson, you will pass an event handler function as a prop. However, you have to define an event handler before you can pass one anywhere. In this lesson, you will define an event handler function.
+
+How do you define an event handler in React?
+
+You define an event handler as a method on the component class, just like the render method.
+
+handleEvent, onEvent, and this.props.onEvent
+Let’s talk about naming things.
+
+When you pass an event handler as a prop, as you just did, there are two names that you have to choose.
+
+Both naming choices occur in the parent component class - that is, in the component class that defines the event handler and passes it.
+
+The first name that you have to choose is the name of the event handler itself.
+
+Look at Talker.js, lines 6 through 12. This is our event handler. We chose to name it talk.
+
+The second name that you have to choose is the name of the prop that you will use to pass the event handler. This is the same thing as your attribute name.
+
+For our prop name, we also chose talk, as shown on line 15:
+
+return <Button talk={this.talk} />;
+These two names can be whatever you want. However, there is a naming convention that they often follow. You don’t have to follow this convention, but you should understand it when you see it.
+
+Here’s how the naming convention works: first, think about what type of event you are listening for. In our example, the event type was “click.”
+
+If you are listening for a “click” event, then you name your event handler handleClick. If you are listening for a “keyPress” event, then you name your event handler handleKeyPress:
+
+class MyClass extends React.Component {
+  handleHover() {
+    alert('I am an event handler.');
+    alert('I will be called in response to "hover" events.');
+  }
+}
+Your prop name should be the word on, plus your event type. If you are listening for a “click” event, then you name your prop onClick. If you are listening for a “keyPress” event, then you name your prop onKeyPress:
+
+class MyClass extends React.Component {
+  handleHover() {
+    alert('I am an event handler.');
+    alert('I will listen for a "hover" event.');
+  }
+
+  render() {
+    return <Child onHover={this.handleHover} />;
+  }
+}
+Instructions
+1.
+In Talker.js on line 6, change the event handler’s name from talk to handleClick.
