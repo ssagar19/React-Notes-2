@@ -1,7 +1,7 @@
 # Pass `props` to a Component
 You can pass information to a React component.
 
-How? By giving that component an attribute:
+How? By giving that component an attribute:::::::::::::::::::::
 
 <MyComponent foo="bar" />
 Let’s say that you want to pass a component the message, "This is some top secret info.". Here’s how you could do it:
